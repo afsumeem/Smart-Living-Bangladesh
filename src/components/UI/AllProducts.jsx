@@ -6,17 +6,29 @@ import { Checkbox } from "@nextui-org/react";
 const AllProducts = ({ products }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
+  const [selectedFeatures, setSelectedFeatures] = useState([]);
   // unique categories
 
   const uniqueCategories = [
     ...new Set(products.map((product) => product.category)),
   ];
 
+  //
+
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
   };
+
   const handleSortChange = (order) => {
     setSortOrder(order);
+  };
+
+  const handleFeatureChange = (feature) => {
+    setSelectedFeatures((prevSelectedFeatures) =>
+      prevSelectedFeatures.includes(feature)
+        ? prevSelectedFeatures.filter((f) => f !== feature)
+        : [...prevSelectedFeatures, feature]
+    );
   };
 
   //
@@ -25,7 +37,12 @@ const AllProducts = ({ products }) => {
   // });
 
   let filteredProducts = products.filter((product) => {
-    return selectedCategory === "" || product.category === selectedCategory;
+    return (
+      (selectedCategory === "" || product.category === selectedCategory) &&
+      selectedFeatures.every((feature) =>
+        product?.productDetails?.toLowerCase().includes(feature?.toLowerCase())
+      )
+    );
   });
 
   if (sortOrder === "low-to-high") {
@@ -90,39 +107,59 @@ const AllProducts = ({ products }) => {
 
           <div>
             <h5 className=" mt-8 mb-3 font-bold text-[#17acc0]">Features</h5>
-            <Checkbox radius="full">Fingerprint</Checkbox>
-            <Checkbox radius="full">Camera</Checkbox>
+            <Checkbox
+              radius="full"
+              isSelected={selectedFeatures.includes("Fingerprint")}
+              onChange={() => handleFeatureChange("Fingerprint")}
+            >
+              Fingerprint
+            </Checkbox>
+            <Checkbox
+              radius="full"
+              isSelected={selectedFeatures.includes("Camera")}
+              onChange={() => handleFeatureChange("Camera")}
+            >
+              Camera
+            </Checkbox>
           </div>
         </div>
         {/* all products */}
         <div className="col-span-6">
-          <div className=" gap-3 grid grid-cols-12 grid-rows-2 px-8">
-            {filteredProducts.map((product, i) => (
-              <div
-                className="col-span-12 md:col-span-6 lg:col-span-3  p-7 border-none gap-5 relative shadow-lg mb-5"
-                key={i}
-              >
-                <img
-                  alt="Card background"
-                  className="object-cover rounded-xl mb-4 w-full h-32 my-5"
-                  src={product.image}
-                  // width={270}
-                />
-                <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
-                  {product.productName}
-                </h4>
-                <p className="mt-2">Model: {product?.model}</p>
-                <p className="flex items-center gap-1 mt-5">
-                  <TbCurrencyTaka className="text-xl" />{" "}
-                  <span className="text-sm font-semibold">{product.price}</span>
-                </p>
-                <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
-                  {product?.category}
-                </p>
-              </div>
-            ))}
-          </div>{" "}
-        </div>
+          {filteredProducts.length === 0 ? (
+            <p className="text-center font-bold text-red-600">
+              No Product Found!
+            </p>
+          ) : (
+            <div className=" gap-3 grid grid-cols-12 grid-rows-2 px-8">
+              {filteredProducts.map((product, i) => (
+                <div
+                  className="col-span-12 md:col-span-6 lg:col-span-3  p-7 border-none gap-5 relative shadow-lg mb-5"
+                  key={i}
+                >
+                  <img
+                    alt="Card background"
+                    className="object-cover rounded-xl mb-4 w-full h-32 my-5"
+                    src={product.image}
+                    // width={270}
+                  />
+                  <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
+                    {product.productName}
+                  </h4>
+                  <p className="mt-2">Model: {product?.model}</p>
+                  <p className="flex items-center gap-1 mt-5">
+                    <TbCurrencyTaka className="text-xl" />{" "}
+                    <span className="text-sm font-semibold">
+                      {product.price}
+                    </span>
+                  </p>
+                  <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
+                    {product?.category}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>{" "}
       </div>
     </div>
   );
