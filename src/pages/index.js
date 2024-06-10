@@ -19,7 +19,7 @@ export default function Home({ categories, products }) {
       <main className={` ${inter.className}`}>
         <Banner />
         <Categories categories={categories} />
-        <AllProducts products={products} />
+        <AllProducts products={products} categories={categories} />
       </main>
     </>
   );

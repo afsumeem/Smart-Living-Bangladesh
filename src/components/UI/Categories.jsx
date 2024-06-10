@@ -19,7 +19,7 @@ const Categories = ({ categories }) => {
                 src={category.image}
                 // width={270}
               />
-              <h4 className="font-bold text-large my-5 text-[#fd614a] text-center">
+              <h4 className="font-bold text-large my-5 text-[#17acc0] text-center">
                 {category.title}
               </h4>
             </Link>
