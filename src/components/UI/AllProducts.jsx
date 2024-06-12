@@ -2,11 +2,22 @@
 import React, { useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Checkbox } from "@nextui-org/react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 
 const AllProducts = ({ products }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [selectedFeatures, setSelectedFeatures] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   // unique categories
 
   const uniqueCategories = [
@@ -54,6 +65,11 @@ const AllProducts = ({ products }) => {
       (a, b) => parseFloat(b.price) - parseFloat(a.price)
     );
   }
+
+  //
+  const handleOpen = () => {
+    onOpen();
+  };
 
   return (
     <div className="container mx-auto mt-14">
@@ -123,6 +139,7 @@ const AllProducts = ({ products }) => {
             </Checkbox>
           </div>
         </div>
+
         {/* all products */}
         <div className="col-span-6">
           {filteredProducts.length === 0 ? (
@@ -155,12 +172,44 @@ const AllProducts = ({ products }) => {
                   <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
                     {product?.category}
                   </p>
+                  <button
+                    onClick={() => handleOpen()}
+                    className="mt-3 text-[#17acc0]"
+                  >
+                    View Details
+                  </button>
                 </div>
               ))}
             </div>
           )}
-        </div>{" "}
+        </div>
       </div>
+
+      {/*  */}
+
+      <Modal size="xl" isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                Modal Title
+              </ModalHeader>
+              <ModalBody>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam pulvinar risus non risus hendrerit venenatis.
+                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                </p>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   );
 };

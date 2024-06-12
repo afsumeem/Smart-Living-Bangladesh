@@ -32,12 +32,16 @@ Home.getLayout = function getLayout(page) {
 export const getStaticProps = async () => {
   //fetch categories
 
-  const result = await fetch("http://localhost:5000/categories");
+  const result = await fetch(
+    "https://smart-living-bangladesh-backend.onrender.com/categories"
+  );
   const categories = await result.json();
 
   //fetch products
 
-  const allProducts = await fetch("http://localhost:5000/products");
+  const allProducts = await fetch(
+    "https://smart-living-bangladesh-backend.onrender.com/products"
+  );
   const products = await allProducts.json();
 
   return {
