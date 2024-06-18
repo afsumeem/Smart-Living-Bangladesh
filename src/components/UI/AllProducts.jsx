@@ -1,16 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { FaWhatsapp } from "react-icons/fa";
 import { Checkbox } from "@nextui-org/react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+import { useDisclosure } from "@nextui-org/react";
+import ModalCompo from "./Modal";
 
 const AllProducts = ({ products }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -20,7 +14,6 @@ const AllProducts = ({ products }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   // unique categories
-
   const uniqueCategories = [
     ...new Set(products.map((product) => product.category)),
   ];
@@ -78,7 +71,7 @@ const AllProducts = ({ products }) => {
     if (selectedProduct) {
       const countryCode = "+880"; // Replace with your country code
       const phoneNumber = "01648322000"; // Replace with your WhatsApp number
-      const message = `Hello, I'm interested in ${selectedProduct.productName}.`; // Optional message
+      const message = `Hello, I'm interested in ${selectedProduct?.productName}.`; // Optional message
       return `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
         message
       )}`;
@@ -181,13 +174,12 @@ const AllProducts = ({ products }) => {
                     <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
                       {product.productName}
                     </h4>
-                    <p className="mt-2">Model: {product?.model}</p>
-                    <p className="flex items-center gap-1 mt-5">
-                      <TbCurrencyTaka className="text-xl" />{" "}
-                      <span className="text-sm font-semibold">
-                        Price: {product.price}
-                      </span>
+                    <p className="mt-2 text-sm">Model: {product?.model}</p>
+
+                    <p className=" mt-5 font-semibold">
+                      Price: {product.price}
                     </p>
+
                     <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
                       {product?.category}
                     </p>
@@ -206,50 +198,12 @@ const AllProducts = ({ products }) => {
       </div>
 
       {/*  */}
-
-      <Modal size="xl" isOpen={isOpen} onClose={onClose}>
-        <ModalContent>
-          <div className="grid grid-cols-2 gap-6 p-4">
-            {/* Left column for product image */}
-            <div>
-              <img
-                src={selectedProduct?.image}
-                alt={selectedProduct?.productName}
-                className="rounded-lg w-full"
-                style={{ height: "auto", maxWidth: "100%" }}
-              />
-            </div>
-            {/* Right column for product details and order button */}
-            <div className="flex flex-col justify-between">
-              <div>
-                <ModalHeader className="flex flex-col gap-1">
-                  {selectedProduct?.productName}
-                </ModalHeader>
-                <ModalBody>
-                  <p>{`Model: ${selectedProduct?.model}`}</p>
-                  <p>{`Price: ${selectedProduct?.price}`}</p>
-                  {/* Add more details as needed */}
-                </ModalBody>
-              </div>
-              <ModalFooter>
-                <Button
-                  color="primary"
-                  variant="light"
-                  as="a"
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Order By Whatsapp
-                </Button>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </div>
-          </div>
-        </ModalContent>
-      </Modal>
+      <ModalCompo
+        isOpen={isOpen}
+        onClose={onClose}
+        selectedProduct={selectedProduct}
+        getWhatsAppUrl={getWhatsAppUrl}
+      />
     </div>
   );
 };

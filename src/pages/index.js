@@ -1,6 +1,5 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import AllProducts from "@/components/UI/AllProducts";
-import AnimatedGradient from "@/components/UI/Animate";
 import Banner from "@/components/UI/Banner";
 import Categories from "@/components/UI/Categories";
 import { Inter } from "next/font/google";

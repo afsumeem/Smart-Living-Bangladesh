@@ -2,9 +2,14 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import Head from "next/head";
 import { TbCurrencyTaka } from "react-icons/tb";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import ModalCompo from "@/components/UI/Modal";
+import { useDisclosure } from "@nextui-org/react";
 
 export default function CategoryPage({ products, category }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const toCamelCase = (str) => {
     return str
       .toLowerCase()
@@ -44,6 +49,25 @@ export default function CategoryPage({ products, category }) {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
+  //
+  const handleOpen = (product) => {
+    setSelectedProduct(product);
+    onOpen();
+  };
+
+  // Construct WhatsApp URL
+  const getWhatsAppUrl = () => {
+    if (selectedProduct) {
+      const countryCode = "+880"; // Replace with your country code
+      const phoneNumber = "01648322000"; // Replace with your WhatsApp number
+      const message = `Hello, I'm interested in ${selectedProduct?.productName}.`; // Optional message
+      return `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
+        message
+      )}`;
+    }
+    return "";
+  };
   return (
     <>
       <Head>
@@ -65,7 +89,7 @@ export default function CategoryPage({ products, category }) {
 
         {/* filtered products */}
         <div className="gradient-bg">
-          <div className="mt-20">
+          <div className="my-20">
             {products.length === 0 ? (
               <p className="text-center font-bold text-red-600">
                 No Product Found!
@@ -86,16 +110,19 @@ export default function CategoryPage({ products, category }) {
                     <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
                       {product.productName}
                     </h4>
-                    <p className="mt-2">Model: {product?.model}</p>
-                    <p className="flex items-center gap-1 mt-5">
-                      <TbCurrencyTaka className="text-xl" />{" "}
-                      <span className="text-sm font-semibold">
-                        Price: {product.price}
-                      </span>
+                    <p className="mt-2 text-sm">Model: {product?.model}</p>
+                    <p className=" mt-5 font-semibold">
+                      Price: {product.price}
                     </p>
                     <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
                       {product?.category}
                     </p>
+                    <button
+                      onClick={() => handleOpen(product)}
+                      className="mt-3 text-[#17acc0]"
+                    >
+                      View Details
+                    </button>
                   </div>
                 ))}
               </div>
@@ -112,6 +139,12 @@ export default function CategoryPage({ products, category }) {
           </div>
         </div>
       </main>
+      <ModalCompo
+        isOpen={isOpen}
+        onClose={onClose}
+        selectedProduct={selectedProduct}
+        getWhatsAppUrl={getWhatsAppUrl}
+      />
     </>
   );
 }
