@@ -39,7 +39,7 @@ const Header = () => {
         <div className="border-b-1 py-1">
           <div className=" container mx-auto ">
             <Link href="/">
-              <img src="/Logo.png" alt="logo" className="h-[68px] ml-10" />
+              <img src="/Logo.png" alt="logo" className="h-[75px] ml-10" />
             </Link>
           </div>
         </div>
