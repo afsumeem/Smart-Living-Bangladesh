@@ -90,7 +90,7 @@ export default function CategoryPage({ products, category }) {
                     <p className="flex items-center gap-1 mt-5">
                       <TbCurrencyTaka className="text-xl" />{" "}
                       <span className="text-sm font-semibold">
-                        {product.price}
+                        Price: {product.price}
                       </span>
                     </p>
                     <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
