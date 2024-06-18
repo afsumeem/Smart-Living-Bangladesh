@@ -2,6 +2,7 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import Head from "next/head";
 import { TbCurrencyTaka } from "react-icons/tb";
+import React, { useEffect, useRef } from "react";
 
 export default function CategoryPage({ products, category }) {
   const toCamelCase = (str) => {
@@ -11,6 +12,38 @@ export default function CategoryPage({ products, category }) {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   };
+
+  //
+  const interBubbleRef = useRef(null);
+  const curX = useRef(0);
+  const curY = useRef(0);
+  const tgX = useRef(0);
+  const tgY = useRef(0);
+
+  useEffect(() => {
+    const move = () => {
+      curX.current += (tgX.current - curX.current) / 20;
+      curY.current += (tgY.current - curY.current) / 20;
+      if (interBubbleRef.current) {
+        interBubbleRef.current.style.transform = `translate(${Math.round(
+          curX.current
+        )}px, ${Math.round(curY.current)}px)`;
+      }
+      requestAnimationFrame(move);
+    };
+
+    const handleMouseMove = (event) => {
+      tgX.current = event.clientX;
+      tgY.current = event.clientY;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    move();
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -18,7 +51,7 @@ export default function CategoryPage({ products, category }) {
         <meta name="description" content={`Products for ${category}`} />
       </Head>
       <main className=" min-h-screen ">
-        <div className=" bg-black  w-full mb-5 relative">
+        <div className=" bg-black  w-full  relative">
           <div
             className="overflow-hidden opacity-40 bg-contain bg-black  w-full h-[400px]"
             style={{ backgroundImage: `url(/banner3.png)` }}
@@ -31,41 +64,52 @@ export default function CategoryPage({ products, category }) {
         </div>
 
         {/* filtered products */}
-        <div className="mt-16">
-          {products.length === 0 ? (
-            <p className="text-center font-bold text-red-600">
-              No Product Found!
-            </p>
-          ) : (
-            <div className=" gap-3 grid grid-cols-12 grid-rows-2 px-8">
-              {products.map((product, i) => (
-                <div
-                  className="col-span-12 md:col-span-6 lg:col-span-3  p-7 border-none gap-5 relative shadow-lg mb-5"
-                  key={i}
-                >
-                  <img
-                    alt="Card background"
-                    className="object-cover rounded-xl mb-4 w-full h-32 my-5"
-                    src={product.image}
-                    // width={270}
-                  />
-                  <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
-                    {product.productName}
-                  </h4>
-                  <p className="mt-2">Model: {product?.model}</p>
-                  <p className="flex items-center gap-1 mt-5">
-                    <TbCurrencyTaka className="text-xl" />{" "}
-                    <span className="text-sm font-semibold">
-                      {product.price}
-                    </span>
-                  </p>
-                  <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
-                    {product?.category}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+        <div className="gradient-bg">
+          <div className="mt-20">
+            {products.length === 0 ? (
+              <p className="text-center font-bold text-red-600">
+                No Product Found!
+              </p>
+            ) : (
+              <div className=" gap-3 grid grid-cols-12 grid-rows-2 px-8 ">
+                {products.map((product, i) => (
+                  <div
+                    className="col-span-12 md:col-span-6 lg:col-span-3  p-7 border-none gap-5 relative shadow-lg mb-5 bg-white z-50"
+                    key={i}
+                  >
+                    <img
+                      alt="Card background"
+                      className="object-cover rounded-xl mb-4 w-full h-32 my-5"
+                      src={product.image}
+                      // width={270}
+                    />
+                    <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
+                      {product.productName}
+                    </h4>
+                    <p className="mt-2">Model: {product?.model}</p>
+                    <p className="flex items-center gap-1 mt-5">
+                      <TbCurrencyTaka className="text-xl" />{" "}
+                      <span className="text-sm font-semibold">
+                        {product.price}
+                      </span>
+                    </p>
+                    <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
+                      {product?.category}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="gradients-container">
+            <div className="g1"></div>
+            <div className="g2"></div>
+            <div className="g3"></div>
+            <div className="g4"></div>
+            <div className="g5"></div>
+            {/* <InteractiveBubble /> */}
+            <div className="interactive" ref={interBubbleRef}></div>
+          </div>
         </div>
       </main>
     </>

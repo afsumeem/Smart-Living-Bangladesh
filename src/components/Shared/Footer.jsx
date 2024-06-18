@@ -1,23 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import { IoMdCall } from "react-icons/io";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-[#17acc0] dark:bg-gray-900 mt-10">
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+      <footer className="bg-white dark:bg-gray-900">
+        <div className="mx-auto w-full max-w-screen-xl p-4">
           <div className="md:flex md:justify-between">
-            <div className="mb-6 md:mb-0 text-center ml-0 lg:ml-20">
+            <div className="mb-6 md:mb-0 text-center ml-10">
               <img
                 src="/Logo.png"
-                className="h-36 block mx-auto"
+                className="h-36 block mx-auto "
                 alt="Smart Living Bangladesh"
               />
-              <p className="text-white">Smart Homes for Smarter Bangladesh</p>
+              <p className="text-black">Smart Homes for Smarter Bangladesh</p>
             </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div>
-                <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase dark:text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6 mt-10 ">
+              <div className="">
+                <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase ">
                   Address
                 </h2>
                 <p className="flex flex-col">
@@ -26,58 +27,38 @@ const Footer = () => {
                   <span>Dhaka</span>
                 </p>
               </div>
-              <div className="ml-0 md:ml-40 ">
+              <div className="ml-0 md:ml-14">
                 <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase ">
-                  Follow us
+                  Contact us
                 </h2>
-                <ul className="text-black font-medium">
-                  <li className="mb-4">
-                    <a
-                      href="https://github.com/themesberg/flowbite"
-                      className="hover:underline "
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://discord.gg/4eeurUVvTy"
-                      className="hover:underline"
-                    >
-                      Discord
-                    </a>
-                  </li>
-                </ul>
+                <p className="flex flex-row items-center gap-2">
+                  <IoMdCall /> <span>01648322000</span>
+                </p>
+                <p className="flex flex-row items-center gap-2">
+                  <IoLogoWhatsapp className="text-[#42c151]" />
+                  <span> 01648322000</span>
+                </p>
+                <p className="flex flex-row items-center gap-2">
+                  <img src="/bkash.png" alt="" className="h-7" />
+                  <span> 01648322000</span>
+                </p>
+              </div>
+              <div className=" ">
+                <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase ">
+                  Bank Account
+                </h2>
+                <p className="">Standarad Chartered Bank Ltd</p>
+                <p>Gulshan Branch</p>
+                <p>AC No: 18140664901</p>
               </div>
             </div>
           </div>
-          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm sm:text-center font-semibold">
-              © 2024
-              <a href="#" className="hover:underline">
-                Smart Living Bangladesh
-              </a>
-              . All Rights Reserved.
-            </span>
-            <div className="flex mt-4 sm:justify-center sm:mt-0">
-              <a href="#" className="text-black ">
-                <svg
-                  className="w-4 h-4"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 8 19"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <span className="sr-only">Facebook page</span>
-              </a>
-            </div>
+
+          {/*  */}
+          <div className=" border-t-1 pt-4 mt-4 border-[#17acc0] text-center">
+            <p className="font-semibold text-sm">
+              © 2024 Smart Living Bangladesh. All Rights Reserved.
+            </p>
           </div>
         </div>
       </footer>

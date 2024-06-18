@@ -21,10 +21,10 @@ const Banner = () => {
           <div className="background-div bg-cover rounded-3xl w-[100%] mx-auto grid grid-cols-1 gap-5">
             {/* content */}
 
-            <div className="shadow-2xl bg-white rounded-xl  relative mb-5">
+            <div className="shadow-2xl bg-white rounded-xl  relative ">
               <div
-                className="overflow-hidden bg-black bg-cover w-full h-[500px]"
-                style={{ backgroundImage: `url(/banner.png)` }}
+                className="overflow-hidden bg-black bg-cover w-full h-[550px]"
+                style={{ backgroundImage: `url(/banner-4.jpg)` }}
               ></div>
             </div>
           </div>
@@ -33,34 +33,10 @@ const Banner = () => {
           <div className="background-div bg-cover rounded-3xl w-[100%] mx-auto grid grid-cols-1 gap-5">
             {/* content */}
 
-            <div className="shadow-2xl bg-white rounded-xl  relative mb-5">
+            <div className="shadow-2xl bg-white rounded-xl  relative ">
               <div
-                className="overflow-hidden bg-black bg-cover w-full h-[500px]"
-                style={{ backgroundImage: `url(/banner.png)` }}
-              ></div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="background-div bg-cover rounded-3xl w-[100%] mx-auto grid grid-cols-1 gap-5">
-            {/* content */}
-
-            <div className="shadow-2xl bg-white rounded-xl  relative mb-5">
-              <div
-                className="overflow-hidden bg-black bg-cover w-full h-[500px]"
-                style={{ backgroundImage: `url(/banner.png)` }}
-              ></div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="background-div bg-cover rounded-3xl w-[100%] mx-auto grid grid-cols-1 gap-5">
-            {/* content */}
-
-            <div className="shadow-2xl bg-white rounded-xl  relative mb-5">
-              <div
-                className="overflow-hidden bg-black bg-cover w-full h-[500px]"
-                style={{ backgroundImage: `url(/banner.png)` }}
+                className="overflow-hidden bg-black bg-cover w-full h-[550px]"
+                style={{ backgroundImage: `url(/banner-4.jpg)` }}
               ></div>
             </div>
           </div>
