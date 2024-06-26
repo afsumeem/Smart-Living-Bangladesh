@@ -4,16 +4,29 @@
 
 /*  */
 :root {
-  --color-bg1: #17acc0;
-  --color-bg2: #17acc0;
-  --color1: 180, 180, 50;
-  --color2: 180, 180, 50;
-  --color3: 180, 180, 50;
-  --color4: 180, 180, 50;
-  --color5: 180, 180, 50;
+  --color-bg1: #c1feef;
+  --color-bg2: #c1feef;
+  --color1: 197, 254, 61;
+  --color2: 250, 254, 124;
+  --color3: 193, 254, 163;
+  --color4: 197, 254, 147;
+  --color5: 237, 254, 178;
   --color-interactive: 140, 100, 255;
   --circle-size: 80%;
   --blending: hard-light;
+}
+
+/*  */
+
+.mySwiper .swiper-pagination-bullet {
+  background: #000;
+
+  width: 10px;
+  height: 10px;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background: white;
 }
 
 @keyframes moveInCircle {

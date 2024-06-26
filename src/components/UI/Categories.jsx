@@ -3,22 +3,25 @@ import Link from "next/link";
 
 const Categories = ({ categories }) => {
   return (
-    <div className="container mx-auto mt-14 z-40">
-      <h2 className="text-center text-2xl font-bold mb-5 z-40">Categories</h2>
-      <div className=" gap-6 grid grid-cols-12 grid-rows-2 px-8">
+    <div className="container mx-auto mt-14 ">
+      <div className=" relative z-50">
+        <h2 className="text-center text-2xl font-bold mb-5 z-50">Categories</h2>
+      </div>
+
+      <div className=" flex flex-wrap px-8 justify-center items-center">
         {categories.map((category, i) => (
           <div
-            className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 border-none m-2 p-2 shadow-lg  hover:shadow-2xl duration-300 bg-white z-40"
+            className="border-none m-2 p-2 hover:shadow-xl duration-300 z-40"
             key={i}
           >
             <Link href={`/category/${category.title.toLowerCase()}`}>
               <img
                 alt="Card background"
-                className="object-cover mb-4 w-full h-56"
+                className="object-cover mb-4  h-24 rounded-full block mx-auto"
                 src={category.image}
                 // width={270}
               />
-              <h4 className="font-bold text-large my-5 text-[#17acc0] text-center">
+              <h4 className="font-bold text-large my-5 text-center">
                 {category.title}
               </h4>
             </Link>

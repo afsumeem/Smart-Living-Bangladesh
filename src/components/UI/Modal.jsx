@@ -15,7 +15,7 @@ const ModalCompo = ({ selectedProduct, isOpen, onClose, getWhatsAppUrl }) => {
         <div className="grid grid-cols-2 gap-6 p-4">
           {/* Left column for product image */}
           <div className="flex flex-col items-center">
-            <ModalHeader className="flex flex-col gap-1 text-[#17acc0] text-xl">
+            <ModalHeader className="flex flex-col gap-1 text-[#17acc0] text-xl mt-4">
               {selectedProduct?.productName}
             </ModalHeader>
             <img

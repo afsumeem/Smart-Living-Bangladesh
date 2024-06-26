@@ -3,19 +3,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 // import required modules
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 
 const Banner = () => {
   return (
     <div>
       <Swiper
         loop={true}
-        modules={[Navigation, Autoplay]}
+        modules={[Navigation, Autoplay, Pagination]}
         spaceBetween={30}
         slidesPerView="auto"
         autoplay={{ delay: 3000 }}
-        className="mySwiper w-[100%] overflow-visible"
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        className="mySwiper w-[100%] overflow-visible block mx-auto"
       >
         <SwiperSlide>
           <div className="background-div bg-cover rounded-3xl w-[100%] mx-auto grid grid-cols-1 gap-5">

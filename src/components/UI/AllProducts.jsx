@@ -1,17 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import { TbCurrencyTaka } from "react-icons/tb";
-import { FaWhatsapp } from "react-icons/fa";
 import { Checkbox } from "@nextui-org/react";
-import { useDisclosure } from "@nextui-org/react";
-import ModalCompo from "./Modal";
+import Link from "next/link";
 
 const AllProducts = ({ products }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [selectedFeatures, setSelectedFeatures] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   // unique categories
   const uniqueCategories = [
@@ -36,11 +31,6 @@ const AllProducts = ({ products }) => {
     );
   };
 
-  //
-  // const filteredProducts = products.filter((product) => {
-  //   return selectedCategory === "" || product.category === selectedCategory;
-  // });
-
   let filteredProducts = products.filter((product) => {
     return (
       (selectedCategory === "" || product.category === selectedCategory) &&
@@ -61,27 +51,11 @@ const AllProducts = ({ products }) => {
   }
 
   //
-  const handleOpen = (product) => {
-    setSelectedProduct(product);
-    onOpen();
-  };
 
-  // Construct WhatsApp URL
-  const getWhatsAppUrl = () => {
-    if (selectedProduct) {
-      const countryCode = "+880"; // Replace with your country code
-      const phoneNumber = "01648322000"; // Replace with your WhatsApp number
-      const message = `Hello, I'm interested in ${selectedProduct?.productName}.`; // Optional message
-      return `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
-        message
-      )}`;
-    }
-    return "";
-  };
   return (
     <div className="container mx-auto mt-14 z-40 ">
-      <div className="z-40">
-        <h2 className="text-center text-2xl font-bold mb-5 z-40 ">
+      <div className=" relative z-50">
+        <h2 className="text-center text-2xl font-bold mb-5 z-50">
           All Products
         </h2>
       </div>
@@ -163,33 +137,29 @@ const AllProducts = ({ products }) => {
                   className="col-span-12 md:col-span-6 lg:col-span-3 border-none gap-5 relative shadow-lg mb-5 bg-white z-40"
                   key={i}
                 >
-                  <img
-                    alt="Card background"
-                    className="object-cover rounded-xl mb-4 w-full h-32 my-5"
-                    src={product.image}
-                    // width={270}
-                  />
-                  <hr />
-                  <div className="p-5">
-                    <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
-                      {product.productName}
-                    </h4>
-                    <p className="mt-2 text-sm">Model: {product?.model}</p>
+                  <Link href={`/id/${product?._id}`}>
+                    <img
+                      alt="Card background"
+                      className="object-cover rounded-xl mb-4 w-full h-32 my-5"
+                      src={product.image}
+                      // width={270}
+                    />
+                    <hr />
+                    <div className="p-5">
+                      <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
+                        {product.productName}
+                      </h4>
+                      <p className="mt-2 text-sm">Model: {product?.model}</p>
 
-                    <p className=" mt-5 font-semibold">
-                      Price: {product.price}
-                    </p>
+                      <p className=" mt-5 font-semibold">
+                        Price: {product.price}
+                      </p>
 
-                    <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
-                      {product?.category}
-                    </p>
-                    <button
-                      onClick={() => handleOpen(product)}
-                      className="mt-3 text-[#17acc0]"
-                    >
-                      View Details
-                    </button>
-                  </div>
+                      <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
+                        {product?.category}
+                      </p>
+                    </div>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -198,12 +168,6 @@ const AllProducts = ({ products }) => {
       </div>
 
       {/*  */}
-      <ModalCompo
-        isOpen={isOpen}
-        onClose={onClose}
-        selectedProduct={selectedProduct}
-        getWhatsAppUrl={getWhatsAppUrl}
-      />
     </div>
   );
 };

@@ -1,15 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layouts/RootLayout";
 import Head from "next/head";
-import { TbCurrencyTaka } from "react-icons/tb";
-import React, { useEffect, useRef, useState } from "react";
-import ModalCompo from "@/components/UI/Modal";
-import { useDisclosure } from "@nextui-org/react";
+import React, { useEffect, useRef } from "react";
+
+import Link from "next/link";
 
 export default function CategoryPage({ products, category }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
   const toCamelCase = (str) => {
     return str
       .toLowerCase()
@@ -50,34 +46,16 @@ export default function CategoryPage({ products, category }) {
     };
   }, []);
 
-  //
-  const handleOpen = (product) => {
-    setSelectedProduct(product);
-    onOpen();
-  };
-
-  // Construct WhatsApp URL
-  const getWhatsAppUrl = () => {
-    if (selectedProduct) {
-      const countryCode = "+880"; // Replace with your country code
-      const phoneNumber = "01648322000"; // Replace with your WhatsApp number
-      const message = `Hello, I'm interested in ${selectedProduct?.productName}.`; // Optional message
-      return `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
-        message
-      )}`;
-    }
-    return "";
-  };
   return (
     <>
       <Head>
         <title>{category} Products - Smart Living Bangladesh</title>
         <meta name="description" content={`Products for ${category}`} />
       </Head>
-      <main className=" min-h-screen ">
-        <div className=" bg-black  w-full  relative">
+      <main className="min-h-screen">
+        <div className=" bg-black w-full relative">
           <div
-            className="overflow-hidden opacity-40 bg-contain bg-black  w-full h-[400px]"
+            className="overflow-hidden opacity-40 bg-contain bg-black w-full h-[400px]"
             style={{ backgroundImage: `url(/banner3.png)` }}
           ></div>
           <div className="absolute top-1/2 w-full">
@@ -101,28 +79,24 @@ export default function CategoryPage({ products, category }) {
                     className="col-span-12 md:col-span-6 lg:col-span-3  p-7 border-none gap-5 relative shadow-lg mb-5 bg-white z-50"
                     key={i}
                   >
-                    <img
-                      alt="Card background"
-                      className="object-cover rounded-xl mb-4 w-full h-32 my-5"
-                      src={product.image}
-                      // width={270}
-                    />
-                    <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
-                      {product.productName}
-                    </h4>
-                    <p className="mt-2 text-sm">Model: {product?.model}</p>
-                    <p className=" mt-5 font-semibold">
-                      Price: {product.price}
-                    </p>
-                    <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
-                      {product?.category}
-                    </p>
-                    <button
-                      onClick={() => handleOpen(product)}
-                      className="mt-3 text-[#17acc0]"
-                    >
-                      View Details
-                    </button>
+                    <Link href={`/id/${product?._id}`}>
+                      <img
+                        alt="Card background"
+                        className="object-cover rounded-xl mb-4 w-full h-32 my-5"
+                        src={product.image}
+                        // width={270}
+                      />
+                      <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
+                        {product.productName}
+                      </h4>
+                      <p className="mt-2 text-sm">Model: {product?.model}</p>
+                      <p className=" mt-5 font-semibold">
+                        Price: {product.price}
+                      </p>
+                      <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
+                        {product?.category}
+                      </p>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -139,12 +113,6 @@ export default function CategoryPage({ products, category }) {
           </div>
         </div>
       </main>
-      <ModalCompo
-        isOpen={isOpen}
-        onClose={onClose}
-        selectedProduct={selectedProduct}
-        getWhatsAppUrl={getWhatsAppUrl}
-      />
     </>
   );
 }
