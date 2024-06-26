@@ -58,10 +58,10 @@ const CategoryId = ({ selectedProduct }) => {
       {/*  */}
       <main className=" min-h-screen ">
         <div className="gradient-bg ">
-          <div className="h-screen z-40 container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 pt-16">
+          <div className="h-screen z-40 container mx-auto pb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 pt-16 pb-10 ">
               {/* Left column for product image */}
-              <div className="flex flex-col items-center justify-center z-40">
+              <div className="flex flex-col items-center justify-center z-40 ">
                 <img
                   src={selectedProduct?.image}
                   alt={selectedProduct?.productName}
