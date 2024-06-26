@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +13,7 @@
   --color4: 197, 254, 147;
   --color5: 237, 254, 178;
   --color-interactive: 140, 100, 255;
-  --circle-size: 80%;
+  --circle-size: 100%;
   --blending: hard-light;
 }
 
@@ -20,7 +21,6 @@
 
 .mySwiper .swiper-pagination-bullet {
   background: #000;
-
   width: 10px;
   height: 10px;
 }
@@ -33,11 +33,9 @@
   0% {
     transform: rotate(0deg);
   }
-
   50% {
     transform: rotate(180deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -47,11 +45,9 @@
   0% {
     transform: translateY(-20%);
   }
-
   50% {
     transform: translateY(20%);
   }
-
   100% {
     transform: translateY(-20%);
   }
@@ -61,11 +57,9 @@
   0% {
     transform: translateX(-20%) translateY(-5%);
   }
-
   50% {
     transform: translateX(20%) translateY(5%);
   }
-
   100% {
     transform: translateX(-20%) translateY(-5%);
   }
@@ -109,8 +103,6 @@ body {
   mix-blend-mode: var(--blending);
   width: var(--circle-size);
   height: var(--circle-size);
-  top: 0;
-  left: calc(50% - var(--circle-size) / 2);
   opacity: 1;
 }
 
@@ -121,6 +113,8 @@ body {
       rgba(var(--color1), 0) 50%
     )
     no-repeat;
+  top: 1%;
+  left: 10%;
   transform-origin: center center;
   animation: moveVertical 30s ease infinite;
 }
@@ -132,6 +126,8 @@ body {
       rgba(var(--color2), 0) 50%
     )
     no-repeat;
+  top: 5%;
+  left: 70%;
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 20s reverse infinite;
 }
@@ -143,8 +139,8 @@ body {
       rgba(var(--color3), 0) 50%
     )
     no-repeat;
-  top: calc(5% - var(--circle-size) / 2 + 200px);
-  left: calc(50% - var(--circle-size) / 2 - 500px);
+  top: 10%;
+  left: 20%;
   transform-origin: calc(50% + 400px);
   animation: moveInCircle 40s linear infinite;
 }
@@ -156,6 +152,8 @@ body {
       rgba(var(--color4), 0) 50%
     )
     no-repeat;
+  top: 15%;
+  left: 60%;
   transform-origin: calc(50% - 200px);
   animation: moveHorizontal 40s ease infinite;
   opacity: 0.7;
@@ -170,8 +168,8 @@ body {
     no-repeat;
   width: calc(var(--circle-size) * 2);
   height: calc(var(--circle-size) * 2);
-  top: calc(5% - var(--circle-size));
-  left: calc(50% - var(--circle-size));
+  top: 5%;
+  left: 50%;
   transform-origin: calc(50% - 800px) calc(50% + 200px);
   animation: moveInCircle 20s ease infinite;
 }
@@ -196,7 +194,6 @@ body {
 
 .product-card {
   background: rgba(221, 221, 221, 0.25);
-  /* box-shadow: 0 8px 32px 0 rgba(218, 218, 218, 0.37); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;

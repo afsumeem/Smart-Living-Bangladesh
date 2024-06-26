@@ -56,7 +56,7 @@ const AllProducts = ({ products, searchTerm }) => {
   return (
     <>
       <div className="container mx-auto mt-14 z-40 ">
-        <div className="relative z-50">
+        <div className="relative z-40">
           <h2 className="text-center text-2xl font-bold mb-5 z-50">
             All Products
           </h2>

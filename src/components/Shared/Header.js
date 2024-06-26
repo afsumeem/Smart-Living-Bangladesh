@@ -8,7 +8,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
   return (
     <>
       {/*  */}
-      <div className=" ">
+      <div className="sticky top-0 z-50">
         <div className="flex justify-end gap-2 bg-[#17acc0] py-1 text-white px-3">
           <p>
             Call us <span className="font-bold">01648322000</span>
@@ -16,7 +16,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
           <span> | </span>
           <p>Diplomats Tower, kalachandpur Main Road, Baridhara, Dhaka</p>
         </div>
-        <div className="border-b-1 py-1">
+        <div className="border-b-1 py-1 bg-white">
           <div className=" container mx-auto flex justify-between items-center ">
             <Link href="/">
               <img src="/Logo.png" alt="logo" className="h-[75px] ml-10" />

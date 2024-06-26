@@ -4,7 +4,7 @@ import Link from "next/link";
 const Categories = ({ categories }) => {
   return (
     <div className="container mx-auto mt-14 ">
-      <div className=" relative z-50">
+      <div className=" relative z-40">
         <h2 className="text-center text-2xl font-bold mb-5 z-50">Categories</h2>
       </div>
 
