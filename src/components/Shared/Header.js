@@ -25,20 +25,14 @@ const Header = () => {
             </Link>
             <Input
               label="Search"
-              variant="bordered"
+              variant="flat"
               placeholder=""
               endContent={
-                <button
-                  className="focus:outline-none"
-                  type="button"
-                  // onClick={toggleVisibility}
-                >
-                  <IoSearchOutline className="text-2xl text-default-400 pointer-events-none" />
-                </button>
+                <IoSearchOutline className="text-2xl text-default-400 pointer-events-none" />
               }
               type="text"
               // type={isVisible ? "text" : "password"}
-              className="max-w-xs"
+              className="max-w-lg h-12 rounded-md  b"
             />
           </div>
         </div>

@@ -59,9 +59,9 @@ const CategoryId = ({ selectedProduct }) => {
       <main className=" min-h-screen ">
         <div className="gradient-bg ">
           <div className="h-screen z-40 container mx-auto">
-            <div className="grid grid-cols-2 gap-12 px-4 pt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 pt-16">
               {/* Left column for product image */}
-              <div className="flex flex-col items-center z-40">
+              <div className="flex flex-col items-center justify-center z-40">
                 <img
                   src={selectedProduct?.image}
                   alt={selectedProduct?.productName}
@@ -72,24 +72,30 @@ const CategoryId = ({ selectedProduct }) => {
               {/* Right column for product details and order button */}
               <div className="flex flex-col justify-between z-40">
                 <div className="mt-5">
-                  <h2 className="flex flex-col gap-1  text-2xl mt-4 font-semibold">
+                  <h2 className="flex flex-col gap-1  text-xl mt-4 font-bold">
                     {selectedProduct?.productName}
                   </h2>
-                  <p className=" text-lg">{`Model: ${selectedProduct?.model}`}</p>
-                  <p>{`Price: ${selectedProduct?.price}`}</p>
-                  <p>
+                  <p className="  mt-2">
+                    <span className="font-bold">Model: </span>
+                    {selectedProduct?.model}
+                  </p>
+                  <p className="  mt-2">
+                    <span className="font-bold"> Price: </span>
+                    {selectedProduct?.price}
+                  </p>
+                  <p className="  mt-2">
                     <span className="font-bold">Details</span> <br />
                     <span>{selectedProduct?.productDetails}</span>
                   </p>
 
-                  <p>
+                  <p className="  mt-2">
                     <span className="font-bold">Additional Information</span>{" "}
                     <br />
                     <span>{selectedProduct?.additionalInformation}</span>
                   </p>
 
                   {selectedProduct?.benefits && (
-                    <p>
+                    <p className="  mt-2">
                       <span className="font-bold">Benefits</span> <br />
                       <span>{selectedProduct?.benefits}</span>
                     </p>
@@ -97,7 +103,7 @@ const CategoryId = ({ selectedProduct }) => {
                 </div>
 
                 <Button
-                  className="text-[#17acc0] border  border-[#17acc0] rounded-none "
+                  className="text-[#17acc0] border  border-[#17acc0] rounded-none mt-5"
                   variant="light"
                   as="a"
                   href={getWhatsAppUrl()}

@@ -11,7 +11,7 @@ const Categories = ({ categories }) => {
       <div className=" flex flex-wrap px-8 justify-center items-center">
         {categories.map((category, i) => (
           <div
-            className="border-none m-2 p-2 hover:shadow-xl duration-300 z-40"
+            className="border-none m-2 px-6 py-4 hover:shadow-md duration-300 z-40 rounded-xl"
             key={i}
           >
             <Link href={`/category/${category.title.toLowerCase()}`}>
