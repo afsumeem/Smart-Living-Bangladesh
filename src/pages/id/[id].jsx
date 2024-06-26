@@ -56,10 +56,10 @@ const CategoryId = ({ selectedProduct }) => {
         <meta name="description" content={` ${selectedProduct?.productName}`} />
       </Head>
       {/*  */}
-      <main className=" min-h-screen ">
+      <main className=" min-h-screen">
         <div className="gradient-bg ">
-          <div className="h-screen z-40 container mx-auto pb-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 pt-16 pb-10 ">
+          <div className="min-h-screen z-40 container mx-auto pb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 py-16 ">
               {/* Left column for product image */}
               <div className="flex flex-col items-center justify-center z-40 ">
                 <img
@@ -100,18 +100,18 @@ const CategoryId = ({ selectedProduct }) => {
                       <span>{selectedProduct?.benefits}</span>
                     </p>
                   )}
-                </div>
 
-                <Button
-                  className="text-[#17acc0] border  border-[#17acc0] rounded-none mt-5"
-                  variant="light"
-                  as="a"
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Order By Whatsapp
-                </Button>
+                  <Button
+                    className="bg-[#17acc0] text-white rounded-none mt-5"
+                    variant="light"
+                    as="a"
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Order By Whatsapp
+                  </Button>
+                </div>
               </div>
               <div className="gradients-container">
                 <div className="g1"></div>
