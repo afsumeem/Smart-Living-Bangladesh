@@ -195,7 +195,7 @@ body {
 /* products card */
 
 .product-card {
-  background: rgba(221, 221, 221, 0.20);
+  background: rgba(221, 221, 221, 0.25);
   /* box-shadow: 0 8px 32px 0 rgba(218, 218, 218, 0.37); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

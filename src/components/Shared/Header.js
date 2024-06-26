@@ -4,9 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
-const Header = () => {
-  const toggleVisibility = () => setIsVisible(!isVisible);
-
+const Header = ({ searchTerm, setSearchTerm }) => {
   return (
     <>
       {/*  */}
@@ -27,6 +25,8 @@ const Header = () => {
               label="Search"
               variant="flat"
               placeholder=""
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               endContent={
                 <IoSearchOutline className="text-2xl text-default-400 pointer-events-none" />
               }

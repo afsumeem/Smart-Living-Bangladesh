@@ -73,29 +73,37 @@ export default function CategoryPage({ products, category }) {
                 No Product Found!
               </p>
             ) : (
-              <div className=" gap-3 grid grid-cols-12 grid-rows-2 px-8 ">
+              <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
                 {products.map((product, i) => (
                   <div
-                    className="col-span-12 md:col-span-6 lg:col-span-3  p-7 border-none gap-5 relative shadow-lg mb-5 bg-white z-50"
+                    className=" border-none relative mb-5 product-card z-40 shadow-md"
                     key={i}
                   >
                     <Link href={`/id/${product?._id}`}>
                       <img
                         alt="Card background"
-                        className="object-cover rounded-xl mb-4 w-full h-32 my-5"
+                        className="rounded-xl mb-4 w-full h-32 my-5"
                         src={product.image}
-                        // width={270}
                       />
-                      <h4 className="font-semibold text-sm mt-3 text-[#17acc0]">
-                        {product.productName}
-                      </h4>
-                      <p className="mt-2 text-sm">Model: {product?.model}</p>
-                      <p className=" mt-5 font-semibold">
-                        Price: {product.price}
-                      </p>
-                      <p className="bg-[#17acc0] p-1 text-white w-fit text-xs absolute top-0 right-0">
-                        {product?.category}
-                      </p>
+                      <hr />
+                      <div className="p-4">
+                        <h4 className="font-semibold text-sm mt-1">
+                          {product.productName}
+                        </h4>
+                        <p className="mt-3 text-sm">Model: {product?.model}</p>
+                        <p className="mt-3 text-sm">
+                          <span className="font-semibold">Price: </span> BDT-
+                          {product.price}
+                        </p>
+                        {product?.withInstallation && (
+                          <p className="mt-3 text-sm">
+                            BDT- {product?.withInstallation} (With Installation)
+                          </p>
+                        )}
+                        <p className="bg-[#17acc0] py-1 px-2 text-white w-fit text-xs absolute top-0 right-0">
+                          {product?.category}
+                        </p>
+                      </div>
                     </Link>
                   </div>
                 ))}

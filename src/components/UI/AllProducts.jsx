@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const AllProducts = ({ products }) => {
+const AllProducts = ({ products, searchTerm }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [selectedFeature, setSelectedFeature] = useState("");
@@ -34,7 +34,12 @@ const AllProducts = ({ products }) => {
         (product?.productDetails &&
           product.productDetails
             .toLowerCase()
-            .includes(selectedFeature.toLowerCase())))
+            .includes(selectedFeature.toLowerCase()))) &&
+      (searchTerm === "" ||
+        product?.productName
+          ?.toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        product?.model?.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
 
@@ -49,100 +54,100 @@ const AllProducts = ({ products }) => {
   }
 
   return (
-    <div className="container mx-auto mt-14 z-40 ">
-      <div className="relative z-50">
-        <h2 className="text-center text-2xl font-bold mb-5 z-50">
-          All Products
-        </h2>
-      </div>
-      {/*  */}
-      <div className="flex gap-4 my-10 justify-center items-center flex-wrap px-8 z-40">
-        <select
-          className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white border-gray-300 "
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-        >
-          <option value="">All Categories</option>
-          {uniqueCategories.map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-
-        <select
-          className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white "
-          value={sortOrder}
-          onChange={handleSortChange}
-        >
-          <option value="">Sort by Price</option>
-          <option value="low-to-high">Low to High</option>
-          <option value="high-to-low">High to Low</option>
-        </select>
-
-        <select
-          className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white "
-          value={selectedFeature}
-          onChange={handleFeatureChange}
-        >
-          <option value="">Select Feature</option>
-          {uniqueFeatures.map((feature, index) => (
-            <option key={index} value={feature}>
-              {feature}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="grid grid-cols-7 z-40">
-        {/* all products */}
-        <div className="col-span-7">
-          {filteredProducts.length === 0 ? (
-            <p className="text-center font-bold text-red-600">
-              No Product Found!
-            </p>
-          ) : (
-            <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
-              {filteredProducts.map((product, i) => (
-                <div
-                  className=" border-none relative mb-5 product-card z-40"
-                  key={i}
-                >
-                  <Link href={`/id/${product?._id}`}>
-                    <img
-                      alt="Card background"
-                      className="rounded-xl mb-4 w-full h-32 my-5"
-                      src={product.image}
-                    />
-                    <hr />
-                    <div className="p-4">
-                      <h4 className="font-semibold text-sm mt-1">
-                        {product.productName}
-                      </h4>
-                      <p className="mt-3 text-sm">Model: {product?.model}</p>
-                      <p className="mt-3 text-sm">
-                        <span className="font-semibold">Price: </span> BDT-
-                        {product.price}
-                      </p>
-                      <p className="mt-3 text-sm">
-                        <span className="font-semibold">
-                          With Installation Price:{" "}
-                        </span>{" "}
-                        BDT-
-                        {product?.withInstallation}
-                      </p>
-                      <p className="bg-[#17acc0] py-1 px-2 text-white w-fit text-xs absolute top-0 right-0">
-                        {product?.category}
-                      </p>
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          )}
+    <>
+      <div className="container mx-auto mt-14 z-40 ">
+        <div className="relative z-50">
+          <h2 className="text-center text-2xl font-bold mb-5 z-50">
+            All Products
+          </h2>
         </div>
-      </div>
-    </div>
+        {/*  */}
+        <div className="flex gap-4 my-10 justify-center items-center flex-wrap px-8 z-40">
+          <select
+            className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white border-gray-300 "
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            <option value="">All Categories</option>
+            {uniqueCategories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+
+          <select
+            className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white "
+            value={sortOrder}
+            onChange={handleSortChange}
+          >
+            <option value="">Sort by Price</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+          </select>
+
+          <select
+            className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white "
+            value={selectedFeature}
+            onChange={handleFeatureChange}
+          >
+            <option value="">Select Feature</option>
+            {uniqueFeatures.map((feature, index) => (
+              <option key={index} value={feature}>
+                {feature}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="grid grid-cols-7 z-40">
+          {/* all products */}
+          <div className="col-span-7">
+            {filteredProducts.length === 0 ? (
+              <p className="text-center font-bold text-red-600">
+                No Product Found!
+              </p>
+            ) : (
+              <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
+                {filteredProducts.map((product, i) => (
+                  <div
+                    className=" border-none relative mb-5 product-card z-40 shadow-md"
+                    key={i}
+                  >
+                    <Link href={`/id/${product?._id}`}>
+                      <img
+                        alt="Card background"
+                        className="rounded-xl mb-4 w-full h-32 my-5"
+                        src={product.image}
+                      />
+                      <hr />
+                      <div className="p-4">
+                        <h4 className="font-semibold text-sm mt-1">
+                          {product.productName}
+                        </h4>
+                        <p className="mt-3 text-sm">Model: {product?.model}</p>
+                        <p className="mt-3 text-sm">
+                          <span className="font-semibold">Price: </span> BDT-
+                          {product.price}
+                        </p>
+                        {product?.withInstallation && (
+                          <p className="mt-3 text-sm">
+                            BDT- {product?.withInstallation} (With Installation)
+                          </p>
+                        )}
+                        <p className="bg-[#17acc0] py-1 px-2 text-white w-fit text-xs absolute top-0 right-0">
+                          {product?.category}
+                        </p>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>{" "}
+    </>
   );
 };
 
