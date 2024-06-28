@@ -64,20 +64,21 @@ const AllProducts = ({ products, searchTerm }) => {
         {/*  */}
         <div className="flex gap-4 my-10 justify-center items-center flex-wrap px-8 z-40">
           <select
-            className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white border-gray-300 "
+            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow"
             value={selectedCategory}
             onChange={handleCategoryChange}
           >
-            <option value="">All Categories</option>
+            <option value="" selected>
+              All Categories
+            </option>
             {uniqueCategories.map((category, index) => (
               <option key={index} value={category}>
                 {category}
               </option>
             ))}
           </select>
-
           <select
-            className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white "
+            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow"
             value={sortOrder}
             onChange={handleSortChange}
           >
@@ -87,7 +88,7 @@ const AllProducts = ({ products, searchTerm }) => {
           </select>
 
           <select
-            className="px-4 py-2 rounded-lg w-40 text-sm z-40 bg-white "
+            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow"
             value={selectedFeature}
             onChange={handleFeatureChange}
           >
@@ -111,7 +112,7 @@ const AllProducts = ({ products, searchTerm }) => {
               <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
                 {filteredProducts.map((product, i) => (
                   <div
-                    className=" border-none relative mb-5 product-card z-40 shadow-md"
+                    className=" border-none relative mb-5  z-40 backdrop-blur-md shadow bg-gray-50 bg-opacity-40 rounded-xl"
                     key={i}
                   >
                     <Link href={`/id/${product?._id}`}>

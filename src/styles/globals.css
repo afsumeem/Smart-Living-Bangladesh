@@ -15,8 +15,113 @@
   --color-interactive: 140, 100, 255;
   --circle-size: 100%;
   --blending: hard-light;
+  --navbar-height: 0;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #a7dadac5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #17acc0;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* search container */
+
+.search-container {
+  position: relative;
+  display: inline-block;
+  margin: 4px 2px;
+  height: 50px;
+  width: 50px;
+  vertical-align: bottom;
+}
+
+.searchbutton {
+  position: absolute;
+  font-size: 22px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  padding-top: 14px;
+  padding-left: 10px;
+}
+
+.search:focus + .searchbutton {
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  background-color: rgba(255, 255, 255, 0.61);
+  color: black;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search {
+  position: absolute;
+  left: 49px;
+  background-color: rgba(255, 255, 255, 0.61);
+  outline: none;
+  border: none;
+  padding: 0;
+  width: 0;
+  height: 100%;
+  z-index: 10;
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.search:focus {
+  width: 330px;
+  padding: 0 16px 0 0;
+}
+
+.expandright {
+  left: auto;
+  right: 49px;
+}
+
+.expandright:focus {
+  padding: 0 0 0 16px;
+}
+
+/* navbar */
+.navbar1 {
+  background-color: none !important;
+}
+
+.navbar1.colorChange {
+  background-color: transparent;
+}
+header {
+  max-width: 100% !important;
+}
+
+.data-\[menu-open\=true\]\:backdrop-blur-xl[data-menu-open="true"] {
+  backdrop-filter: none !important;
+}
+
+/* banner */
+.banner-bg {
+  background-image: url("https://assets.website-files.com/5837424ae11409586f837994/611b2d3c1a84f270060c9ec1_Texture.png"),
+    linear-gradient(90deg, rgb(0, 32, 92) 1%, rgb(115, 124, 208) 97%);
+}
 /*  */
 
 .mySwiper .swiper-pagination-bullet {

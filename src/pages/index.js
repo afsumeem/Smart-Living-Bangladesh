@@ -53,8 +53,8 @@ export default function Home({ categories, products }) {
       </Head>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <main className={` ${inter.className} `}>
-        <Banner />
         <div className="gradient-bg">
+          <Banner />
           <Categories categories={categories} />
           <AllProducts
             products={products}
