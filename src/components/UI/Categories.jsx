@@ -11,8 +11,7 @@ const Categories = ({ categories }) => {
       <div className=" flex flex-wrap px-8 justify-center items-center">
         {categories.map((category, i) => (
           <div
-            // className="border border-gray-50 m-2 px-6 py-4 shadow-md hover:shadow-lg duration-300 z-40 rounded-xl"
-            className=" backdrop-blur-xl backdrop-saturate-150 backdrop-filter border-none m-2 px-6 py-4 shadow-md hover:shadow-lg duration-300 z-40 rounded-xl"
+            className=" product-card border-none m-2 px-6 py-4 shadow-sm hover:shadow-2xl duration-300 z-40 rounded-xl"
             key={i}
           >
             <Link href={`/category/${category.title.toLowerCase()}`}>

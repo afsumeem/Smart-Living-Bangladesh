@@ -12,26 +12,12 @@ import {
 } from "@nextui-org/react";
 import { IoCartOutline } from "react-icons/io5";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Header = ({ searchTerm, setSearchTerm }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [colorChange, setColorchange] = useState(false);
-  const menuItems = ["Home"];
 
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 620) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", changeNavbarColor);
-    return () => {
-      window.removeEventListener("scroll", changeNavbarColor);
-    };
-  }, []);
+  const menuItems = ["Home"];
 
   return (
     <>
@@ -39,31 +25,22 @@ const Header = ({ searchTerm, setSearchTerm }) => {
         isBordered
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className={`${
-          colorChange
-            ? "navbar1 colorChange border-b"
-            : "bg-inherit backdrop-blur-none backdrop-saturate-0 backdrop-filter-none px-10 mt-5 border-b-0"
-        } z-50 fixed `}
+        className="bg-inherit backdrop-blur-none backdrop-saturate-0 backdrop-filter-none px-10 border-b-0 z-40 absolute top-8"
+        x
       >
         <NavbarContent className=" " justify="start">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className={`${colorChange ? "text-black" : "text-white"} `}
+            className="text-white"
           />
           <Link href="/">
-            <img src="/Logo.png" alt="logo" className="h-9 " />
+            <img src="/Logo.png" alt="logo" className="h-14 " />
           </Link>
         </NavbarContent>
 
         <NavbarContent className="  " justify="center">
           <NavbarBrand>
-            <p
-              className={`${
-                colorChange ? "text-black" : "text-white"
-              } text-2xl`}
-            >
-              Smart Living Bangladesh
-            </p>
+            <p className="text-white    text-2xl">Smart Living Bangladesh</p>
           </NavbarBrand>
         </NavbarContent>
 
@@ -79,9 +56,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <label
-                className={`${
-                  colorChange ? "text-black" : "text-white"
-                } button searchbutton`}
+                className="text-white button searchbutton"
                 for="searchright"
               >
                 <HiMagnifyingGlass />
@@ -89,11 +64,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
             </div>
           </NavbarItem>
           <NavbarItem className="">
-            <IoCartOutline
-              className={`${
-                colorChange ? "text-black" : "text-white"
-              } text-2xl`}
-            />
+            <IoCartOutline className="text-white text-2xl" />
           </NavbarItem>
         </NavbarContent>
 
@@ -101,9 +72,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
           {menuItems.map((item, index) => (
             <NavbarMenuItem
               key={`${item}-${index}`}
-              className={`${
-                colorChange ? "text-black" : "text-white"
-              } border-b pb-2`}
+              className="text-white border-b pb-2"
             >
               <Link className="w-full " href="#" size="lg">
                 {item}

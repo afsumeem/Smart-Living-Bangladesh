@@ -64,7 +64,7 @@ const AllProducts = ({ products, searchTerm }) => {
         {/*  */}
         <div className="flex gap-4 my-10 justify-center items-center flex-wrap px-8 z-40">
           <select
-            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow"
+            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow "
             value={selectedCategory}
             onChange={handleCategoryChange}
           >
@@ -112,7 +112,7 @@ const AllProducts = ({ products, searchTerm }) => {
               <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
                 {filteredProducts.map((product, i) => (
                   <div
-                    className=" border-none relative mb-5  z-40 backdrop-blur-md shadow bg-gray-50 bg-opacity-40 rounded-xl"
+                    className=" border-none relative mb-5  z-40 shadow product-card rounded-xl"
                     key={i}
                   >
                     <Link href={`/id/${product?._id}`}>
