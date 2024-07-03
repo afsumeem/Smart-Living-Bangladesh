@@ -3,7 +3,7 @@
 const Footer = () => {
   return (
     <div>
-      <footer className=" border-t border-black footer relative z-40">
+      <footer className=" border-t border-white footer relative z-40">
         <div className="mx-auto w-full max-w-screen-xl p-4 ">
           <div className="md:flex md:justify-between ">
             <div className="mb-6 md:mb-0 text-center ml-10 ">
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           {/*  */}
-          <div className="text-white border-t-1 pt-4 mt-4 border-[#17acc0] text-center">
+          <div className="text-white border-t-1 pt-4 mt-4 border-gray-400 text-center">
             <p className="font-semibold text-sm">
               © 2024 Smart Living Bangladesh. All Rights Reserved.
             </p>

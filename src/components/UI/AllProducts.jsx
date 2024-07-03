@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import Link from "next/link";
+import CustomDropdown from "./CustomeDropdown";
 
 const AllProducts = ({ products, searchTerm }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -14,18 +14,6 @@ const AllProducts = ({ products, searchTerm }) => {
 
   // unique features (example features)
   const uniqueFeatures = ["Fingerprint", "Camera"];
-
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-  const handleSortChange = (event) => {
-    setSortOrder(event.target.value);
-  };
-
-  const handleFeatureChange = (event) => {
-    setSelectedFeature(event.target.value);
-  };
 
   let filteredProducts = products.filter((product) => {
     return (
@@ -55,50 +43,52 @@ const AllProducts = ({ products, searchTerm }) => {
 
   return (
     <>
-      <div className="container mx-auto mt-14 z-40 ">
+      <div className="container mx-auto mt-14 z-40">
         <div className="relative z-40">
           <h2 className="text-center text-2xl font-bold mb-5 z-50">
             All Products
           </h2>
         </div>
-        {/*  */}
+        {/* Filters */}
         <div className="flex gap-4 my-10 justify-center items-center flex-wrap px-8 z-40">
-          <select
-            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow "
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-          >
-            <option value="" selected>
-              All Categories
-            </option>
-            {uniqueCategories.map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          <select
-            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow"
-            value={sortOrder}
-            onChange={handleSortChange}
-          >
-            <option value="">Sort by Price</option>
-            <option value="low-to-high">Low to High</option>
-            <option value="high-to-low">High to Low</option>
-          </select>
+          <div className="z-50 w-full md:w-auto">
+            <CustomDropdown
+              options={["All Categories", ...uniqueCategories]}
+              selected={selectedCategory || "All Categories"}
+              onSelect={(value) =>
+                setSelectedCategory(value === "All Categories" ? "" : value)
+              }
+              placeholder="Select Category"
+            />
+          </div>
 
-          <select
-            className="bg-gray-50 bg-opacity-40 border border-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 z-40 backdrop-blur-md shadow"
-            value={selectedFeature}
-            onChange={handleFeatureChange}
-          >
-            <option value="">Select Feature</option>
-            {uniqueFeatures.map((feature, index) => (
-              <option key={index} value={feature}>
-                {feature}
-              </option>
-            ))}
-          </select>
+          <div className="z-50 w-full md:w-auto">
+            <CustomDropdown
+              options={["Sort by Price", "Low to High", "High to Low"]}
+              selected={sortOrder || "Sort by Price"}
+              onSelect={(value) =>
+                setSortOrder(
+                  value === "Sort by Price"
+                    ? ""
+                    : value === "Low to High"
+                    ? "low-to-high"
+                    : "high-to-low"
+                )
+              }
+              placeholder="Sort by Price"
+            />
+          </div>
+
+          <div className="z-50 w-full md:w-auto">
+            <CustomDropdown
+              options={["Select Feature", ...uniqueFeatures]}
+              selected={selectedFeature || "Select Feature"}
+              onSelect={(value) =>
+                setSelectedFeature(value === "Select Feature" ? "" : value)
+              }
+              placeholder="Select Feature"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-7 z-40">
@@ -109,10 +99,10 @@ const AllProducts = ({ products, searchTerm }) => {
                 No Product Found!
               </p>
             ) : (
-              <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
+              <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12">
                 {filteredProducts.map((product, i) => (
                   <div
-                    className=" border-none relative mb-5  z-40 shadow product-card rounded-xl"
+                    className="border-none relative mb-5 z-40 shadow product-card rounded-xl"
                     key={i}
                   >
                     <Link href={`/id/${product?._id}`}>
@@ -147,7 +137,7 @@ const AllProducts = ({ products, searchTerm }) => {
             )}
           </div>
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };
