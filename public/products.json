@@ -6,7 +6,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 5 unlocking Methods,Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Works with Tuya App, See unlocking history on app, 0.5 s fingerprint opening, Supports passage mode for codeless entry, Up to 100 fingerprint saving, Type C charging port for emergency power supply, Virtual Code with 16,digit anti peeping function",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949621/samples/smart-living/products/A01_-_Copy_sygy3g.png"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949621/samples/smart-living/products/A01_-_Copy_sygy3g.png"
+    ]
   },
   {
     "productName": "Tuya Biometric handle Lock",
@@ -16,7 +18,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 5 unlocking Methods,Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Works with Tuya App, See unlocking history on app, Trial and Error Alarm, Low Battery Warning, Generate Temporary Password, 0.5 s fingerprint opening, Supports passage mode for codeless entry, Up to 100 fingerprint saving, Type C charging port for emergency power supply, Virtual Code with 16 digit anti peeping function",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949670/samples/smart-living/products/1_o2vv1e.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949670/samples/smart-living/products/1_o2vv1e.jpg"
+    ]
   },
   {
     "productName": "Smart Lock With Built In Doorbell Camera and 3d Face Recognition with Wishome App",
@@ -101,7 +105,8 @@
   {
     "productName": "1 gang Glass Panel Wifi + Remote smart switch white Supports Tuya App",
     "model": "SS1",
-    "price": "1000, (1200 with remote)",
+    "price": "1000",
+    "withRemote": "1200",
     "category": "Smart Switches",
     "productDetails": "Tuya WiFi + RF 1 Gang Smart Touch Switch for,Smart Lighting Control and Automation, Smart Life & Tuya Smart both app supported, Timer Schedule Settings, Voice Command Control from Google Assistant/Home and Alexa, Directly connects to WiFi Router, No extra hub required.",
     "additionalInformation": "Work Voltage: 110-240V AC, Load Power: 500W/gang, Color: White, Size: 86*86*33mm (EU)",
@@ -110,7 +115,8 @@
   {
     "productName": "1 gang Glass Panel Wifi + Remote smart switch Black Supports Tuya App",
     "model": "SS2",
-    "price": "900 , (1100 with remote)",
+    "price": "900",
+    "withRemote": "1100",
     "category": "Smart Switches",
     "productDetails": "Tuya WiFi + RF 1 Gang Smart Touch Switch for, Smart Lighting Control and Automation, Smart Life & Tuya Smart both app supported, Timer Schedule Settings, Voice Command Control from Google Assistant/Home and Alexa, Directly connects to WiFi Router, No extra hub required.",
     "additionalInformation": "App name: Smart Life / Tuya, Work Voltage: 110-240V AC, Load Power: 500W/gang, Color: Black, Size: 86*86*33mm (EU)",
@@ -119,7 +125,8 @@
   {
     "productName": "2 gang Glass Panel Wifi + Remote smart switch White Supports Tuya App",
     "model": "SS3",
-    "price": "1600 , (1800 with remote)",
+    "price": "1600",
+    "withRemote": "1800",
     "category": "Smart Switches",
     "productDetails": "Tuya WiFi + RF 2 Gang Smart Touch Switch for, Smart Lighting Control and Automation, Smart Life & Tuya Smart both app supported, Timer Schedule Settings,Voice Command Control from Google Assistant/Home and Alexa, Directly connects to WiFi Router, No extra hub required.",
     "additionalInformation": "App name: Smart Life / Tuya, Work Voltage: 110-240V AC, Load Power: 500W/gang, Color: White, Size: 86*86*33mm (EU).",

@@ -2,7 +2,6 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { Button } from "@nextui-org/react";
 import Head from "next/head";
-import React, { useEffect, useRef } from "react";
 
 const CategoryId = ({ selectedProduct }) => {
   // Construct WhatsApp URL
@@ -19,36 +18,7 @@ const CategoryId = ({ selectedProduct }) => {
   };
 
   //
-  const interBubbleRef = useRef(null);
-  const curX = useRef(0);
-  const curY = useRef(0);
-  const tgX = useRef(0);
-  const tgY = useRef(0);
 
-  useEffect(() => {
-    const move = () => {
-      curX.current += (tgX.current - curX.current) / 20;
-      curY.current += (tgY.current - curY.current) / 20;
-      if (interBubbleRef.current) {
-        interBubbleRef.current.style.transform = `translate(${Math.round(
-          curX.current
-        )}px, ${Math.round(curY.current)}px)`;
-      }
-      requestAnimationFrame(move);
-    };
-
-    const handleMouseMove = (event) => {
-      tgX.current = event.clientX;
-      tgY.current = event.clientY;
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    move();
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
   return (
     <>
       <Head>
@@ -119,8 +89,6 @@ const CategoryId = ({ selectedProduct }) => {
                 <div className="g3"></div>
                 <div className="g4"></div>
                 <div className="g5"></div>
-                {/* <InteractiveBubble /> */}
-                <div className="interactive" ref={interBubbleRef}></div>
               </div>
             </div>{" "}
           </div>

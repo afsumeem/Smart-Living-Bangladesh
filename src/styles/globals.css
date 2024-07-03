@@ -5,13 +5,13 @@
 
 /*  */
 :root {
-  --color-bg1: #c1feef;
-  --color-bg2: #c1feef;
-  --color1: 197, 254, 61;
+  --color-bg1: #93fefb;
+  --color-bg2: #93fefb;
+  --color1: 251, 255, 22;
   --color2: 250, 254, 124;
-  --color3: 193, 254, 163;
+  --color3: 251, 255, 22;
   --color4: 197, 254, 147;
-  --color5: 237, 254, 178;
+  --color5: 251, 255, 22;
   --color-interactive: 140, 100, 255;
   --circle-size: 100%;
   --blending: hard-light;
@@ -27,7 +27,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #17acc0;
+  background: #99fefb;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(15.5px);
   -webkit-backdrop-filter: blur(15.5px);
@@ -194,8 +194,9 @@ body {
   filter: url(#goo) blur(40px);
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed; /* Changed to fixed */
   top: 0;
+  left: 0;
 }
 
 .gradient-bg .g1,
@@ -203,7 +204,7 @@ body {
 .gradient-bg .g3,
 .gradient-bg .g4,
 .gradient-bg .g5 {
-  position: absolute;
+  position: fixed; /* Changed to fixed */
   mix-blend-mode: var(--blending);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -213,85 +214,69 @@ body {
 .gradient-bg .g1 {
   background: radial-gradient(
       circle at top,
-      rgba(var(--color1), 0.8) 0,
+      rgba(var(--color1), 0.9) 0,
       rgba(var(--color1), 0) 50%
     )
     no-repeat;
-  top: 1%;
-  left: 10%;
+  top: 40%;
+  left: 15%;
   transform-origin: center center;
-  animation: moveVertical 30s ease infinite;
+  animation: moveVertical 10s ease infinite;
 }
 
 .gradient-bg .g2 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color2), 0.8) 0,
+      rgba(var(--color2), 0.9) 0,
       rgba(var(--color2), 0) 50%
     )
     no-repeat;
-  top: 5%;
-  left: 70%;
+  top: 20%;
+  left: 40%;
   transform-origin: calc(50% - 400px);
-  animation: moveInCircle 20s reverse infinite;
+  animation: moveInCircle 6s reverse infinite;
 }
 
 .gradient-bg .g3 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color3), 0.8) 0,
+      rgba(var(--color3), 0.9) 0,
       rgba(var(--color3), 0) 50%
     )
     no-repeat;
-  top: 10%;
-  left: 20%;
+  top: 30%;
+  left: 10%;
   transform-origin: calc(50% + 400px);
-  animation: moveInCircle 40s linear infinite;
+  animation: moveInCircle 8s linear infinite;
 }
 
 .gradient-bg .g4 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color4), 0.8) 0,
+      rgba(var(--color4), 0.9) 0,
       rgba(var(--color4), 0) 50%
     )
     no-repeat;
-  top: 15%;
-  left: 60%;
+  top: 40%;
+  left: 35%;
   transform-origin: calc(50% - 200px);
-  animation: moveHorizontal 40s ease infinite;
+  animation: moveHorizontal 10s ease infinite;
   opacity: 0.7;
 }
 
 .gradient-bg .g5 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color5), 0.8) 0,
+      rgba(var(--color5), 0.9) 0,
       rgba(var(--color5), 0) 50%
     )
     no-repeat;
   width: calc(var(--circle-size) * 2);
   height: calc(var(--circle-size) * 2);
   top: 5%;
-  left: 50%;
+  left: 20%;
   transform-origin: calc(50% - 800px) calc(50% + 200px);
-  animation: moveInCircle 20s ease infinite;
-}
-
-.gradient-bg .interactive {
-  position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(var(--color-interactive), 0.8) 0,
-      rgba(var(--color-interactive), 0) 10%
-    )
-    no-repeat;
-  mix-blend-mode: var(--blending);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
+  animation: moveInCircle 10s ease infinite;
 }
 
 /* products card */
@@ -310,57 +295,11 @@ body {
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* custom-select */
-/* 
-select {
-
-  appearance: none;
-  outline: 10px red;
-  border: 1px solid #e4fff8;
-
-  flex: 1;
-  padding: 0 12px;
-  color: #000000;
-  background-color: #c1feef;
-
-  background-image: none;
-  cursor: pointer;
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-.select {
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  border-radius: 0.25em;
-  overflow: hidden;
-}
-
-.select::after {
-  content: "\25BC";
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1em;
-  background: rgba(255, 255, 255, 0.342);
-  backdrop-filter: blur(16px);
-  transition: 0.25s all ease;
-  pointer-events: none;
-}
-
-.select:hover::after {
-  color: #17acc0;
-} */
-
 .select {
   background: rgba(255, 255, 255, 0.32);
   border: 1px solid rgb(243, 243, 243);
 
-  border-radius: 6px;
+  border-radius: 10px;
   color: #333;
   backdrop-filter: blur(16px);
 }
