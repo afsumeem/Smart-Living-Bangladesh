@@ -22,7 +22,7 @@ export default function CategoryPage({ products, category }) {
         <meta name="description" content={`Products for ${category}`} />
       </Head>
       <main className="min-h-screen">
-        <div className=" bg-black w-full relative">
+        <div className=" bg-black w-full relative z-30">
           <div
             className="overflow-hidden opacity-40 bg-contain bg-black w-full h-[400px]"
             style={{ backgroundImage: `url(/banner3.png)` }}
@@ -59,14 +59,25 @@ export default function CategoryPage({ products, category }) {
                         <h4 className="font-semibold text-sm mt-1">
                           {product.productName}
                         </h4>
-                        <p className="mt-3 text-sm">Model: {product?.model}</p>
+                        <p className="mt-3 text-sm">
+                          {" "}
+                          <span className="font-semibold">
+                            Model: {product?.model}
+                          </span>
+                        </p>
                         <p className="mt-3 text-sm">
                           <span className="font-semibold">Price: </span> BDT-
                           {product.price}
                         </p>
                         {product?.withInstallation && (
                           <p className="mt-3 text-sm">
-                            BDT- {product?.withInstallation} (With Installation)
+                            +BDT {product?.withInstallation} (With Installation)
+                          </p>
+                        )}
+
+                        {product?.withRemote && (
+                          <p className="mt-3 text-sm">
+                            +BDT {product?.withRemote} (with Remote)
                           </p>
                         )}
                         <p className="bg-[#17acc0] py-1 px-2 text-white w-fit text-xs absolute top-0 right-0">

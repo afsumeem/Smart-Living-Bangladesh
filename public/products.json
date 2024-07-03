@@ -30,7 +30,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 6 unlocking Methods,3D Facial Recognition, Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Fully Automatic Smart Door Lock, Automatic Video upon ringing doorbell, Works with Wishome App, See unlocking history on app, Trial and Error Alarm, Low Battery, Warning, Generate Temporary Password, 0.5 s fingerprint opening, Up to 100 fingerprint, card and password saving with 50 face capacity, charging port for emergency power supply",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949719/samples/smart-living/products/SKU_Y_jw92pv.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949719/samples/smart-living/products/SKU_Y_jw92pv.jpg"
+    ]
   },
   {
     "productName": "Smart Lock With Built In Doorbell Camera and 3d Face Recognition with U smart Go app",
@@ -40,7 +42,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 6 unlocking Methods,3D Facial Recognition, Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Fully Automatic Smart Door Lock,Automatic Video upon ringing doorbell, Works with U smart Go App, Combination Unlock (any two methods to unlock, See unlocking history on app, Tampering  Alarm, Low Battery Warning, Generate Temporary Password, 0.5 s fingerprint opening, Up to 100 fingerprint ,card and password saving with 50 face capacity, charging port for emergency power supply, Virtual Code with 16 digit anti peeping function.",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949757/samples/smart-living/products/SKUWC_hofr76.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949757/samples/smart-living/products/SKUWC_hofr76.jpg"
+    ]
   },
   {
     "productName": "Pro Smart Lock With Built In Video Intercom Doorbell Camera and 3d Face Recognition Tuya Version",
@@ -50,7 +54,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 6 unlocking Methods,3D Facial Recognition, Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Fully Automatic Smart Door Lock, Automatic Video upon ringing doorbell, Works with Tuya App, Combination Unlock (any two methods to unlock, See unlocking history on app, Tampering  Alarm, Low Battery Warning, Generate Temporary Password, 0.5 s fingerprint opening, Up to 100 fingerprint ,card and password saving with 50 face capacity, charging port for emergency power supply, Virtual Code with 16 digit anti peeping function.",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949861/samples/smart-living/products/N11_8_hqpjol.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949861/samples/smart-living/products/N11_8_hqpjol.jpg"
+    ]
   },
   {
     "productName": "F10 Tuya Smart Lock With Built In Doorbell Camera and 3d Face Recognition",
@@ -60,7 +66,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 6 unlocking Methods,3D Facial Recognition, Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Fully Automatic Smart Door Lock, Automatic Video upon ringing doorbell, Works with Tuya App, Combination Unlock (any two methods to unlock, See unlocking history on app, Tampering  Alarm, Low Battery Warning, Generate Temporary Password, 0.5 s fingerprint opening, Up to 100 fingerprint, card and password saving with 50 face capacity, charging port for emergency power supply, Virtual Code with 16 digit anti peeping function.",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949981/samples/smart-living/products/B05_ucywln.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717949981/samples/smart-living/products/B05_ucywln.jpg"
+    ]
   },
   {
     "productName": "Usmart Cat Eye Doorbell Camera ",
@@ -70,7 +78,9 @@
     "category": "Smart Lock",
     "productDetails": "Supports 6 unlocking Methods, Fingerprint, Password, RFID card, Key, APP unlock",
     "additionalInformation": "Fully Automatic Smart Door Lock, Automatic Video upon ringing doorbell, Works with U smart App, Combination Unlock (any two methods to unlock, See unlocking history on app, Tampering  Alarm, Low Battery Warning, Generate Temporary Password, 0.5 s fingerprint opening, Up to 300 fingerprint ,card and password saving, charging port for emergency power supply, Virtual Code with 16 digit anti peeping function.",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950049/samples/smart-living/products/Grey_with_camera_szvqfn.png"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950049/samples/smart-living/products/Grey_with_camera_szvqfn.png"
+    ]
   },
   {
     "productName": "4G Wifi Home burglar security alarm system",
@@ -78,21 +88,27 @@
     "category": "Alarm System",
     "productDetails": "1 PIR motion detector, 1 door sensor, 1 siren,2 remote, 2 RFID lock, 1 Control Panel",
     "benefits": "Works on 4G system so get call on your phone when system is triggered, Works on smart life app so monitor your home from anywhere. Get Alerted any time someone breaks in when system is armed. Loud siren to alert everyone",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950114/samples/smart-living/products/9_cahnws.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950114/samples/smart-living/products/9_cahnws.jpg"
+    ]
   },
   {
     "productName": "Security door sensor",
     "model": "SSDS1",
     "price": "495",
     "category": "Smart Sensors",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950114/samples/smart-living/products/9_cahnws.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950114/samples/smart-living/products/9_cahnws.jpg"
+    ]
   },
   {
     "productName": "Security motion sensor",
     "model": "SSMS1",
     "price": "780",
     "category": "Smart Sensors",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950201/samples/smart-living/products/-O_T1_vmmszp.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950201/samples/smart-living/products/-O_T1_vmmszp.jpg"
+    ]
   },
   {
     "productName": "2mp wifi surveillance two way audio IP camera Tuya version",
@@ -100,7 +116,9 @@
     "price": "1950",
     "category": "Smart Doorbell",
     "productDetails": "2 Mp Camera, WIFI PTZ Camera, Support SD card recording, With 5V/1A power adapter, With audio function, Plug and play tech(P2P), Support mobile view with Tuya App, Lens: 3.6mm HD lens, IR Leds: 6pcs IR leds, IR Range: 5-10m IR Range",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950267/samples/smart-living/products/doorbell_1v_xmeymd.png"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950267/samples/smart-living/products/doorbell_1v_xmeymd.png"
+    ]
   },
   {
     "productName": "1 gang Glass Panel Wifi + Remote smart switch white Supports Tuya App",
@@ -110,7 +128,9 @@
     "category": "Smart Switches",
     "productDetails": "Tuya WiFi + RF 1 Gang Smart Touch Switch for,Smart Lighting Control and Automation, Smart Life & Tuya Smart both app supported, Timer Schedule Settings, Voice Command Control from Google Assistant/Home and Alexa, Directly connects to WiFi Router, No extra hub required.",
     "additionalInformation": "Work Voltage: 110-240V AC, Load Power: 500W/gang, Color: White, Size: 86*86*33mm (EU)",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950333/samples/smart-living/products/SS1G_1_iq9bv9.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950333/samples/smart-living/products/SS1G_1_iq9bv9.jpg"
+    ]
   },
   {
     "productName": "1 gang Glass Panel Wifi + Remote smart switch Black Supports Tuya App",
@@ -120,7 +140,9 @@
     "category": "Smart Switches",
     "productDetails": "Tuya WiFi + RF 1 Gang Smart Touch Switch for, Smart Lighting Control and Automation, Smart Life & Tuya Smart both app supported, Timer Schedule Settings, Voice Command Control from Google Assistant/Home and Alexa, Directly connects to WiFi Router, No extra hub required.",
     "additionalInformation": "App name: Smart Life / Tuya, Work Voltage: 110-240V AC, Load Power: 500W/gang, Color: Black, Size: 86*86*33mm (EU)",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950362/samples/smart-living/products/SS1G7_sfmvp9.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950362/samples/smart-living/products/SS1G7_sfmvp9.jpg"
+    ]
   },
   {
     "productName": "2 gang Glass Panel Wifi + Remote smart switch White Supports Tuya App",
@@ -130,6 +152,8 @@
     "category": "Smart Switches",
     "productDetails": "Tuya WiFi + RF 2 Gang Smart Touch Switch for, Smart Lighting Control and Automation, Smart Life & Tuya Smart both app supported, Timer Schedule Settings,Voice Command Control from Google Assistant/Home and Alexa, Directly connects to WiFi Router, No extra hub required.",
     "additionalInformation": "App name: Smart Life / Tuya, Work Voltage: 110-240V AC, Load Power: 500W/gang, Color: White, Size: 86*86*33mm (EU).",
-    "image": "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950402/samples/smart-living/products/SS1GW_4_o7dwm0.jpg"
+    "image": [
+      "https://res.cloudinary.com/ddbvljo3y/image/upload/v1717950402/samples/smart-living/products/SS1GW_4_o7dwm0.jpg"
+    ]
   }
 ]

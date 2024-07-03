@@ -117,14 +117,25 @@ const AllProducts = ({ products, searchTerm }) => {
                         <h4 className="font-semibold text-sm mt-1">
                           {product.productName}
                         </h4>
-                        <p className="mt-3 text-sm">Model: {product?.model}</p>
+                        <p className="mt-3 text-sm">
+                          {" "}
+                          <span className="font-semibold">Model: </span>
+                          {product?.model}
+                        </p>
                         <p className="mt-3 text-sm">
                           <span className="font-semibold">Price: </span> BDT-
                           {product.price}
                         </p>
                         {product?.withInstallation && (
                           <p className="mt-3 text-sm">
-                            BDT- {product?.withInstallation} (With Installation)
+                            +BDT {product?.withInstallation} (With
+                            Installation)
+                          </p>
+                        )}
+
+                        {product?.withRemote && (
+                          <p className="mt-3 text-sm">
+                            +BDT {product?.withRemote} (with Remote)
                           </p>
                         )}
                         <p className="bg-[#17acc0] py-1 px-2 text-white w-fit text-xs absolute top-0 right-0">

@@ -29,7 +29,7 @@ const CategoryId = ({ selectedProduct }) => {
       <main className=" min-h-screen">
         <div className="gradient-bg ">
           <div className="min-h-screen z-40 container mx-auto pb-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 py-16 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 py-16  mt-10">
               {/* Left column for product image */}
               <div className="flex flex-col items-center justify-center z-40 ">
                 <img
@@ -42,38 +42,58 @@ const CategoryId = ({ selectedProduct }) => {
               {/* Right column for product details and order button */}
               <div className="flex flex-col justify-between z-40">
                 <div className="mt-5">
-                  <h2 className="flex flex-col gap-1  text-xl mt-4 font-bold">
+                  <h2 className="flex flex-col gap-1  text-2xl mt-4 font-bold mb-3">
                     {selectedProduct?.productName}
                   </h2>
-                  <p className="  mt-2">
-                    <span className="font-bold">Model: </span>
-                    {selectedProduct?.model}
+                  <p className="  my-2">
+                    Model: <br />
+                    <span className="font-bold text-xl">
+                      {" "}
+                      {selectedProduct?.model}
+                    </span>
                   </p>
+                  <hr />
                   <p className="  mt-2">
-                    <span className="font-bold"> Price: </span>
-                    {selectedProduct?.price}
+                    Price: <br />
+                    <span className="font-bold text-xl">
+                      {" "}
+                      BDT-{selectedProduct?.price}
+                    </span>
                   </p>
-                  <p className="  mt-2">
-                    <span className="font-bold">Details</span> <br />
+                  {selectedProduct?.withInstallation && (
+                    <p className="text-gray-600 mb-2">
+                      +BDT {selectedProduct?.withInstallation} (with
+                      Installation)
+                    </p>
+                  )}
+                  {selectedProduct?.withRemote && (
+                    <p className="text-gray-600 mb-2">
+                      +BDT {selectedProduct?.withRemote} (with Remote)
+                    </p>
+                  )}
+                  <p className="mt-2">
+                    <span className="font-medium">Details:</span>
+                    <br />
                     <span>{selectedProduct?.productDetails}</span>
                   </p>
 
                   <p className="  mt-2">
-                    <span className="font-bold">Additional Information</span>{" "}
+                    <span className="font-medium">Additional Information:</span>
+
                     <br />
                     <span>{selectedProduct?.additionalInformation}</span>
                   </p>
 
                   {selectedProduct?.benefits && (
                     <p className="  mt-2">
-                      <span className="font-bold">Benefits</span> <br />
+                      <span className="font-medium">Benefits:</span>
+                      <br />
                       <span>{selectedProduct?.benefits}</span>
                     </p>
                   )}
 
                   <Button
-                    className="bg-[#17acc0] text-white rounded-none mt-5"
-                    variant="light"
+                    className="bg-[#93fefb] text-black rounded-xl mt-8 shadow-xl w-full border font-semibold py-2"
                     as="a"
                     href={getWhatsAppUrl()}
                     target="_blank"
