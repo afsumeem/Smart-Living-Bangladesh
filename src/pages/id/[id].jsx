@@ -5,6 +5,15 @@ import { Button } from "@nextui-org/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// import required modules
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
+
+//
 
 const CategoryId = ({ selectedProduct }) => {
   const [quantity, setQuantity] = useState(1);
@@ -55,19 +64,50 @@ const CategoryId = ({ selectedProduct }) => {
                   &#8592; Back to Home
                 </Link>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
                 {/* Left column for product image */}
-                <div className="flex flex-col items-center justify-center z-40 ">
+                {/* <div className="flex flex-col items-center justify-center z-40 ">
                   <img
                     src={selectedProduct?.image}
                     alt={selectedProduct?.productName}
-                    className="rounded-lg w-full mt-10"
+                    className="rounded-lg w-full "
                     style={{ height: "auto", maxWidth: "100%" }}
                   />
-                </div>
+                </div> */}
+                <Swiper
+                  loop={true}
+                  modules={[Navigation, Autoplay, Pagination]}
+                  spaceBetween={30}
+                  slidesPerView="auto"
+                  navigation={true}
+                  className="mySwiper w-[100%] overflow-visible block mx-auto rounded-2xl"
+                >
+                  <SwiperSlide>
+                    <div className=" w-[100%] mx-auto h-auto rounded-2xl relative">
+                      {/* content */}
+
+                      <img
+                        src={selectedProduct?.image}
+                        alt={selectedProduct?.productName}
+                        style={{ height: "auto", maxWidth: "100%" }}
+                      />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className=" w-[100%] mx-auto h-auto rounded-2xl relative">
+                      {/* content */}
+
+                      <img
+                        src={selectedProduct?.image}
+                        alt={selectedProduct?.productName}
+                        style={{ height: "auto", maxWidth: "100%" }}
+                      />
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
                 {/* Right column for product details and order button */}
-                <div className="flex flex-col justify-between z-40">
-                  <div className="mt-5">
+                <div className="flex flex-col justify-between z-40 ">
+                  <div className=" select p-5">
                     <h2 className="flex flex-col gap-1  text-2xl mt-4 font-bold mb-3">
                       {selectedProduct?.productName}
                     </h2>
