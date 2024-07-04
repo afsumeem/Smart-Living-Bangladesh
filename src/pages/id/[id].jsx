@@ -80,27 +80,23 @@ const CategoryId = ({ selectedProduct }) => {
                   spaceBetween={30}
                   slidesPerView="auto"
                   navigation={true}
-                  className="mySwiper w-[100%] overflow-visible block mx-auto rounded-2xl"
+                  className="mySwiper w-[100%] overflow-visible rounded-2xl"
                 >
-                  <SwiperSlide>
-                    <div className=" w-[100%] mx-auto h-auto rounded-2xl relative">
-                      {/* content */}
-
+                  <SwiperSlide className="flex items-center justify-center rounded-2xl">
+                    <div className="flex items-center justify-center w-full h-full">
                       <img
                         src={selectedProduct?.image}
                         alt={selectedProduct?.productName}
-                        style={{ height: "auto", maxWidth: "100%" }}
+                        className="object-contain max-w-full max-h-full rounded-2xl"
                       />
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
-                    <div className=" w-[100%] mx-auto h-auto rounded-2xl relative">
-                      {/* content */}
-
+                  <SwiperSlide className="flex items-center justify-center rounded-2xl">
+                    <div className="flex items-center justify-center w-full h-full">
                       <img
                         src={selectedProduct?.image}
                         alt={selectedProduct?.productName}
-                        style={{ height: "auto", maxWidth: "100%" }}
+                        className="object-contain max-w-full max-h-full rounded-2xl"
                       />
                     </div>
                   </SwiperSlide>
@@ -143,16 +139,16 @@ const CategoryId = ({ selectedProduct }) => {
                     <div className="flex items-center gap-4 my-2 ">
                       <button
                         className="p-1 h-6 w-6 rounded-full border-2 border-black text-xl flex items-center hover:text-white hover:bg-black duration-300 justify-center "
-                        onClick={handleIncrease}
+                        onClick={handleDecrease}
                       >
-                        <span className="mb-1">+</span>
+                        <span className="mb-1"> -</span>
                       </button>
                       <p className="font-semibold text-xl">{quantity}</p>
                       <button
                         className="p-1 h-6 w-6 rounded-full border-2 border-black text-xl flex items-center hover:text-white hover:bg-black duration-300 justify-center "
-                        onClick={handleDecrease}
+                        onClick={handleIncrease}
                       >
-                        <span className="mb-1"> -</span>
+                        <span className="mb-1">+</span>
                       </button>
                     </div>
                     <p className="mt-4">
