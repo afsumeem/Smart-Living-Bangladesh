@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import CustomDropdown from "./CustomeDropdown";
 
-const AllProducts = ({ products, searchTerm }) => {
+const AllProducts = ({ products }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [selectedFeature, setSelectedFeature] = useState("");
@@ -23,12 +23,13 @@ const AllProducts = ({ products, searchTerm }) => {
         (product?.productDetails &&
           product.productDetails
             .toLowerCase()
-            .includes(selectedFeature.toLowerCase()))) &&
-      (searchTerm === "" ||
-        product?.productName
-          ?.toLowerCase()
-          .includes(searchTerm.toLowerCase()) ||
-        product?.model?.toLowerCase().includes(searchTerm.toLowerCase()))
+            .includes(selectedFeature.toLowerCase())))
+      // &&
+      // (searchTerm === "" ||
+      //   product?.productName
+      //     ?.toLowerCase()
+      //     .includes(searchTerm.toLowerCase()) ||
+      //   product?.model?.toLowerCase().includes(searchTerm?.toLowerCase()))
     );
   });
 
@@ -103,13 +104,13 @@ const AllProducts = ({ products, searchTerm }) => {
               <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12">
                 {filteredProducts.map((product, i) => (
                   <div
-                    className="border-none relative mb-5 z-40 shadow product-card rounded-xl"
+                    className="border-none relative mb-5 z-40 shadow product-card rounded-xl w-64 md:w-56 mx-auto"
                     key={i}
                   >
                     <Link href={`/id/${product?._id}`}>
                       <img
                         alt="Card background"
-                        className="rounded-xl mb-4 w-full h-32 my-5"
+                        className="rounded-xl mb-4 w-full h-56 md:h-40 my-5"
                         src={product.image}
                       />
                       <hr />
@@ -128,8 +129,7 @@ const AllProducts = ({ products, searchTerm }) => {
                         </p>
                         {product?.withInstallation && (
                           <p className="mt-3 text-sm">
-                            +BDT {product?.withInstallation} (With
-                            Installation)
+                            +BDT {product?.withInstallation} (With Installation)
                           </p>
                         )}
 

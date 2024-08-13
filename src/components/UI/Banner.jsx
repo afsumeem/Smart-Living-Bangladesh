@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -8,9 +8,28 @@ import "swiper/css/pagination";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 
 const Banner = () => {
+  const swiperContainerRef = useRef(null);
+  useEffect(() => {
+    const handleBannerClick = (event) => {
+      // console.log("Banner clicked", event.target);
+    };
+
+    const swiperContainer = swiperContainerRef.current;
+    if (swiperContainer) {
+      swiperContainer.addEventListener("mousedown", handleBannerClick);
+    }
+
+    return () => {
+      if (swiperContainer) {
+        swiperContainer.removeEventListener("mousedown", handleBannerClick);
+      }
+    };
+  }, []);
+
   return (
-    <div className=" px-5 pt-5 ">
+    <div className=" px-5 pt-5 main-banner">
       <Swiper
+        ref={swiperContainerRef}
         loop={true}
         modules={[Navigation, Autoplay, Pagination]}
         spaceBetween={30}
@@ -20,7 +39,7 @@ const Banner = () => {
           clickable: true,
           dynamicBullets: true,
         }}
-        className="mySwiper w-[100%] overflow-visible block mx-auto rounded-2xl"
+        className="mySwiper w-[100%] overflow-visible block mx-auto rounded-2xl z-50"
       >
         <SwiperSlide>
           <div className="background-div bg-cover w-[100%] mx-auto grid grid-cols-1 gap-5 rounded-2xl">

@@ -5,8 +5,8 @@ const Footer = () => {
     <div>
       <footer className=" border-t border-white footer relative z-40">
         <div className="mx-auto w-full max-w-screen-xl p-4 ">
-          <div className="md:flex md:justify-between ">
-            <div className="mb-6 md:mb-0 text-center ml-10 ">
+          <div className="md:flex md:justify-around ">
+            <div className="mb-6 md:mb-0 text-center  ">
               <img
                 src="/Logo.png"
                 className="h-36 block mx-auto "
@@ -14,8 +14,9 @@ const Footer = () => {
               />
               <p className="text-white ">Smart Homes for Smarter Bangladesh</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6 mt-10 ">
-              <div className="text-white">
+            {/*  */}
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-10 sm:gap-6 mt-10 ">
+              <div className="text-white ">
                 <h2 className="mb-6 text-sm font-bold uppercase">Address</h2>
                 <p className="flex flex-col text-white">
                   Baridhara, Diplomates Tower,
@@ -23,7 +24,7 @@ const Footer = () => {
                   <span>Dhaka</span>
                 </p>
               </div>
-              <div className="ml-0 md:ml-14 text-white">
+              <div className="ml-0 md:ml-28 text-white">
                 <h2 className="mb-6 text-sm font-bold text-white uppercase">
                   Contact us
                 </h2>
@@ -35,19 +36,19 @@ const Footer = () => {
                   <img src="/wp.png" alt="" className="h-4" />
                   <span>01648322000</span>
                 </p>
-                <p className="flex flex-row items-center gap-2">
+                {/* <p className="flex flex-row items-center gap-2">
                   <img src="/bkash.png" alt="" className="h-4" />
                   <span>01648322000</span>
-                </p>
+                </p> */}
               </div>
-              <div className="text-white">
+              {/* <div className="text-white">
                 <h2 className="mb-6 text-sm font-bold text-white uppercase">
                   Bank Account
                 </h2>
                 <p className="">Standarad Chartered Bank Ltd</p>
                 <p>Gulshan Branch</p>
                 <p>AC No: 18140664901</p>
-              </div>
+              </div> */}
             </div>
           </div>
 

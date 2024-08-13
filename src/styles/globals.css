@@ -24,6 +24,7 @@
 
 ::-webkit-scrollbar-track {
   background-color: #a7dadac5;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -120,6 +121,10 @@ header {
 .banner-bg {
   background-image: url("https://assets.website-files.com/5837424ae11409586f837994/611b2d3c1a84f270060c9ec1_Texture.png"),
     linear-gradient(90deg, rgb(0, 32, 92) 1%, rgb(115, 124, 208) 97%);
+  pointer-events: none;
+}
+.banner-bg * {
+  pointer-events: auto; /* Allow specific elements inside to handle clicks */
 }
 /*  */
 
@@ -131,6 +136,11 @@ header {
 
 .mySwiper .swiper-pagination-bullet-active {
   background: white;
+}
+
+.swiper-container,
+.swiper-slide {
+  pointer-events: none;
 }
 
 @keyframes moveInCircle {
@@ -302,4 +312,30 @@ body {
   border-radius: 10px;
   color: #333;
   backdrop-filter: blur(16px);
+}
+
+/*  */
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: #f1f1f1;
 }

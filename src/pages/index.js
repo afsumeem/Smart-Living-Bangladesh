@@ -10,7 +10,7 @@ import React, { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ categories, products }) {
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Home({ categories, products }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Header />
       <main className={` ${inter.className} `}>
         <div className="gradient-bg">
           <Banner />
@@ -28,7 +28,7 @@ export default function Home({ categories, products }) {
           <AllProducts
             products={products}
             categories={categories}
-            searchTerm={searchTerm}
+            // searchTerm={searchTerm}
           />
           <Footer />
           <div className="gradients-container">
