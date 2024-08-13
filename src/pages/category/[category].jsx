@@ -45,13 +45,13 @@ export default function CategoryPage({ products, category }) {
               <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 px-8 mb-12 ">
                 {products.map((product, i) => (
                   <div
-                    className=" border-none relative mb-5 product-card z-40 shadow-md"
+                          className="border-none relative mb-5 z-40 shadow product-card rounded-xl w-64 md:w-56 mx-auto"
                     key={i}
                   >
                     <Link href={`/id/${product?._id}`}>
                       <img
                         alt="Card background"
-                        className="rounded-xl mb-4 w-full h-32 my-5"
+                      className="rounded-xl mb-4 w-full h-56 md:h-40 my-5"
                         src={product.image}
                       />
                       <hr />
