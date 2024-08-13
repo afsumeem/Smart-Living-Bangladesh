@@ -124,7 +124,7 @@ header {
   pointer-events: none;
 }
 .banner-bg * {
-  pointer-events: auto; /* Allow specific elements inside to handle clicks */
+  pointer-events: auto; 
 }
 /*  */
 

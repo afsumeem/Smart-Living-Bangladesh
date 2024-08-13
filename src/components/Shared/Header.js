@@ -155,7 +155,7 @@ const Header = () => {
                   </label>
                 </div>
                 {searchResults.length > 0 && (
-                  <div className="absolute right-7 mt-2 bg-white text-black rounded-sm shadow-lg w-[375px] h-44 overflow-y-scroll product-card">
+                  <div className="absolute right-1 mt-2 bg-white text-black rounded-sm shadow-lg w-[375px] h-44 overflow-y-scroll product-card">
                     {searchResults.map((product) => (
                       <div
                         key={product?._id}
